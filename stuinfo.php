@@ -118,7 +118,7 @@ body{
        <div class="card" style="padding: 30px">
         <h3 class="text-center"> STUDENT DETAIL </h3>
         <br>
-        <p> Student Type : <?php echo $row['stype'];?></p>
+        <p> Student Type :  </p>
         <p> Register Number : <?php echo $row['regno'];?></p>
         <p> Name : <?php echo $row['name'];?></p>
         <p> Gender : <?php echo $row['gender'];?></p>
@@ -171,6 +171,23 @@ body{
 </div>
 
 
+
+     <?php
+        include('db.php');
+
+       $a=$_SESSION['sid'];
+       $q2="select * from student where stid='$a'";
+       $re=mysqli_query($con,$q2);
+       $row=mysqli_fetch_array($re);
+
+      
+      
+
+
+?>
+
+
+
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -198,14 +215,14 @@ body{
  <div class="form-group">
       <label class="control-label col-sm-2" for="rno">Register number</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="rno" placeholder="Enter register number" name="rno">
+        <input type="text" class="form-control" value="<?php echo $row['regno'];?>" id="rno" placeholder="Enter register number" name="rno">
       </div>
     </div>
 
      <div class="form-group">
       <label class="control-label col-sm-2" for="name">Student name</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" value="<?php echo $row['name'];?>" name="name">
       </div>
     </div>
  
@@ -224,28 +241,28 @@ body{
      <div class="form-group">
       <label class="control-label col-sm-2" for="dob">date of birth</label>
       <div class="col-sm-10">          
-        <input type="date" class="form-control" id="dob"  name="desg">
+        <input type="date" class="form-control" id="dob"  name="desg" value="<?php echo $row['joindate'];?>">
       </div>
     </div>
 
      <div class="form-group">
-      <label class="control-label col-sm-2" for="age">Age</label>
+      <label class="control-label col-sm-2" for="age" >Age</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="age" placeholder="Enter age" name="age">
+        <input type="text" class="form-control" id="age" placeholder="Enter age" name="age" value="<?php echo $row['age'];?>">
       </div>
     </div>
 
       <div class="form-group">
       <label class="control-label col-sm-2" for="add">Address</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="add" placeholder="Enter address" name="add">
+        <input type="text" class="form-control" id="add" value="<?php echo $row['address'];?>" placeholder="Enter address" name="add">
       </div>
     </div>
 
       <div class="form-group">
       <label class="control-label col-sm-2" for="cno">Contact no</label>
       <div class="col-sm-10">          
-        <input type="number" class="form-control" id="cno" placeholder="Enter contactno" name="cno">
+        <input type="number" class="form-control" id="cno" value="<?php echo $row['contact'];?>" placeholder="Enter contactno" name="cno">
       </div>
     </div>
 
@@ -253,13 +270,13 @@ body{
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <input type="email" class="form-control" id="email" value="<?php echo $row['email'];?>" placeholder="Enter email" name="email">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="pass">Password:</label>
       <div class="col-sm-10">          
-        <input type="pass" class="form-control" id="pass" placeholder="Enter password" name="pass">
+        <input type="pass" class="form-control" value="<?php echo $row['password'];?>" id="pass" placeholder="Enter password" name="pass">
       </div>
     </div>
        <div class="form-group">
@@ -268,16 +285,11 @@ body{
         <input type="date" class="form-control" id="doj" placeholder="Enter dateof joining" name="doj">
       </div>
     </div>
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="qual">Input image</label>
-      <div class="col-sm-10">          
-        <input type="file" class="form-control" id="pimage" placeholder="Input image" name="pimage">
-      </div>
-    </div>
+ 
     <div class="form-group">
       <label class="control-label col-sm-2" for="qual">Enter designation</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="qual" placeholder="Enter designation" name="qual">
+        <input type="text" class="form-control" id="qual" value="<?php echo $row['qual'];?>" placeholder="Enter designation" name="qual">
       </div>
     </div>
    
