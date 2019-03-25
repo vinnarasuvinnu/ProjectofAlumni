@@ -43,6 +43,37 @@ body{
   color: black;
 }
 </style>
+<script type="text/javascript">
+function calculateAge(birthMonth, birthDay, birthYear) {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+    var currentDay = currentDate.getDate(); 
+    var calculatedAge = currentYear - birthYear;
+
+    if (currentMonth < birthMonth - 1) {
+        calculatedAge--;
+    }
+    if (birthMonth - 1 == currentMonth && currentDay < birthDay) {
+        calculatedAge--;
+    }
+    return calculatedAge;
+}
+
+
+  
+  $(document).ready(function(){
+    var d = new Date();
+    var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+    $('#dob').change(function(){
+      var date=$('#dob').val();
+      dateval=new Date( date.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+      var age = calculateAge(dateval.getMonth()+1, dateval.getDate(), dateval.getFullYear());
+      $('#age').val(age);
+    })
+
+  })
+</script>
   </head>
 
   <body>
@@ -130,7 +161,7 @@ body{
      <div class="form-group">
       <label class="control-label col-sm-2" for="age">Age</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="age" placeholder="Enter age" name="age">
+        <input type="text" class="form-control" id="age" placeholder="Enter age" name="age" disabled>
       </div>
     </div>
 
