@@ -63,17 +63,13 @@ body{
   $(document).ready(function(){
         var table=$('#example').DataTable();
         $('#example2').DataTable();
-        $('#down').click(function(){
 
- $("#example").tableToCSV({
-                filename: 'report of student'
-            });
-    });
+ 
 
 
              $('#down1').click(function(){
 
- $("#example").tableToCSV({
+ $("#example2").tableToCSV({
                 filename: 'report of staff'
             });
     });

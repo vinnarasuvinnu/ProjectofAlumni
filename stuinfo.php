@@ -118,7 +118,7 @@ body{
        <div class="card" style="padding: 30px">
         <h3 class="text-center"> STUDENT DETAIL </h3>
         <br>
-        <p> Student Type :  </p>
+        <p> Student Type :<?php echo $row['stype'] ?>  </p>
         <p> Register Number : <?php echo $row['regno'];?></p>
         <p> Name : <?php echo $row['name'];?></p>
         <p> Gender : <?php echo $row['gender'];?></p>
@@ -238,12 +238,7 @@ body{
       </div>
 
     </div>
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="dob">date of birth</label>
-      <div class="col-sm-10">          
-        <input type="date" class="form-control" id="dob"  name="desg" value="<?php echo $row['joindate'];?>">
-      </div>
-    </div>
+   
 
      <div class="form-group">
       <label class="control-label col-sm-2" for="age" >Age</label>
@@ -282,7 +277,7 @@ body{
        <div class="form-group">
       <label class="control-label col-sm-2" for="doj">Date of joining</label>
       <div class="col-sm-10">          
-        <input type="date" class="form-control" id="doj" placeholder="Enter dateof joining" name="doj">
+        <input type="date" class="form-control" id="doj" placeholder="Enter dateof joining" name="doj" value="<?php echo $row['joindate'];?>">
       </div>
     </div>
  
